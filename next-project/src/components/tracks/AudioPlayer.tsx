@@ -27,7 +27,7 @@ export const AudioPlayer = ({ track, onNext, onPrevious }: AudioPlayerProps) => 
 
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.src = track.audioFile;
+      audioRef.current.src = `${process.env.NEXT_PUBLIC_API_URL}/tracks/stream/${track._id}`;
       setDuration(audioRef.current.duration);
     }
   }, [track]);

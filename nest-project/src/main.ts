@@ -8,6 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
   const port = configService.get('PORT');
+  
   app.useGlobalInterceptors(new LoggingInterceptor());
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
@@ -16,7 +17,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api/v1', { exclude: [''] });
   app.enableCors();
 
-  await app.listen(port);
-  console.log(`Application is running on: ${await app.getUrl()}`);
+  // Listen on all network interfaces
+  await app.listen(port, '0.0.0.0');
 }
 bootstrap();
