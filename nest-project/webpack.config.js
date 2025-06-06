@@ -1,5 +1,6 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: './src/main.ts',
@@ -17,6 +18,7 @@ module.exports = {
           loader: 'ts-loader',
           options: {
             transpileOnly: true,
+            configFile: path.resolve(__dirname, 'tsconfig.json'),
           },
         },
         exclude: /node_modules/,
@@ -25,6 +27,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.js'],
+    plugins: [new TsconfigPathsPlugin()],
     alias: {
       '@nestjs/microservices': path.resolve(__dirname, 'node_modules/@nestjs/microservices'),
       '@nestjs/websockets': path.resolve(__dirname, 'node_modules/@nestjs/websockets'),

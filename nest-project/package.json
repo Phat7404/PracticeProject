@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "rimraf dist && nest build --webpack --webpackPath webpack.config.js",
+    "build": "rimraf dist && nest build --webpack --webpackPath webpack.config.js --tsc",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -71,6 +71,7 @@
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
+    "tsconfig-paths-webpack-plugin": "^4.2.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.20.0",
     "webpack-node-externals": "^3.0.0"
