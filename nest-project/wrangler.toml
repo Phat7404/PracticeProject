@@ -3,13 +3,12 @@ main = "dist/main.js"
 compatibility_date = "2024-01-01"
 
 [build]
-command = "npm run build"
+command = "npm install && npm run build"
 watch_dir = "src"
 
 [build.upload]
-format = "modules"
+format = "service-worker"
 main = "./dist/main.js"
-dir = "dist"
 
 [env.production]
 workers_dev = true
@@ -17,6 +16,9 @@ workers_dev = true
 [env.production.vars]
 NODE_ENV = "production"
 PORT = "8080"
+MONGO_URI = "mongodb+srv://tnpht7405:FziythvNvPwgwoFu@todoapp.o12btkq.mongodb.net/"
+JWT_SECRET = "2d0cd13f-782f-4156-affc-031e933cc480"
+JWT_EXPIRES_IN = "1h"
 
 [triggers]
 crons = [] 
