@@ -7,10 +7,16 @@ command = "npm run build"
 watch_dir = "src"
 
 [build.upload]
-format = "service-worker"
+format = "modules"
+main = "./dist/main.js"
+dir = "dist"
 
 [env.production]
 workers_dev = true
 
 [env.production.vars]
-NODE_ENV = "production" 
+NODE_ENV = "production"
+PORT = "8080"
+
+[triggers]
+crons = [] 
